@@ -1,4 +1,4 @@
-# 🌿 ArchFlow — Desktop Productivity Tracker
+# ArchFlow — Desktop Productivity Tracker
 
 A minimalist productivity tracker for **Arch Linux** — written in C++17 with a
 Qt6/QML frontend, SQLite3 storage, and an X11 background daemon.
@@ -10,12 +10,12 @@ Qt6/QML frontend, SQLite3 storage, and an X11 background daemon.
 | Feature               | Detail                                                             |
 |-----------------------|--------------------------------------------------------------------|
 | **Window tracking**   | X11 `XGetInputFocus` + `_NET_WM_NAME` + `/proc/<pid>/comm`         |
-| **Session recording** | SQLite3 WAL — every 5 s poll, 5-min periodic flush                 |
+| **Session recording** | SQLite3 WAL — every 5 s poll, 5-min periodic flush                  |
 | **Discipline streak** | 56-day heatmap (14 × 4 grid), productivity %-coloured              |
 | **Focus trend**       | Smooth Bézier area chart — last 7 days                             |
 | **Pie chart**         | Productive vs unproductive time distribution                       |
 | **Daily routine**     | Checkbox tasks with animated progress bar                          |
-| **Specific tasks**    | CRUD with deadline, green/red status                               |
+| **Specific tasks**     | CRUD with deadline, green/red status                               |
 | **Dual theme**        | Dark + Light — toggle with **one button**, instant animated switch |
 | **Daemon service**    | systemd user service, auto-restart on crash                        |
 
@@ -96,16 +96,16 @@ archflow/
 
 ```
 ┌─────────────────┐   SIGTERM    ┌────────────────────────────┐
-│  archflow-daemon│ ─────────>   │  systemd user service      │
-│                 │              │  archflow-daemon.service   │
+│  archflow-daemon │ ─────────>   │  systemd user service      │
+│                 │              │  archflow-daemon.service    │
 │  WindowTracker  │              └────────────────────────────┘
 │  (X11 poll/5s)  │
 │       │         │  WAL write   ┌─────────────────────────┐
-│  Database       │ ──────────>  │  archflow.db (SQLite3)  │
+│  Database       │ ──────────>  │  archflow.db (SQLite3)   │
 └─────────────────┘              │  sessions               │
                                  │  daily_tasks            │
-┌─────────────────┐              │  specific_tasks         │
-│  archflow (GUI) │  WAL read    └─────────────────────────┘
+┌─────────────────┐              │  specific_tasks          │
+│  archflow (GUI)  │  WAL read    └─────────────────────────┘
 │                 │ <──────────
 │  BackendModel   │   every 30s
 │  (Q_PROPERTY)   │
