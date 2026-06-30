@@ -40,7 +40,7 @@ sudo pacman -S ttf-liberation
 ## Quick Install
 
 ```bash
-git clone https://github.com/you/archflow.git
+git clone https://github.com/krakenshell-sh/archflow.git
 cd archflow
 chmod +x install.sh
 bash install.sh
